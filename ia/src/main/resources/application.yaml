@@ -1,3 +1,18 @@
 spring:
   application:
     name: ia
+
+  ai:
+    model:
+      chat: ollama #Prioridad a Ollama ya que habrá 2 Beans de AI (ollama y gemini)
+      ollama:
+        base-url: http://localhost:11434
+        chat:
+          options:
+            model: llama3.2:3b
+            temperature: 0.5
+      openai:
+        api-key: ${GEMINI_APIKEY}
+        base-url: https://generativelanguage.googleapis.com/v1beta/openai/
+        chat:
+          completions-path: /chat/completions
